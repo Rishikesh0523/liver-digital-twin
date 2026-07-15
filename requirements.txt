@@ -1,0 +1,10 @@
+torch>=2.0
+numpy
+scipy
+pyyaml
+pytest
+matplotlib
+python-docx
+streamlit
+plotly
+pandas

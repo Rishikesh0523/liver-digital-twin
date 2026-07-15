@@ -1,0 +1,39 @@
+# Tiny config for end-to-end smoke testing (not for real numbers).
+data:
+  n_patients_train: 120
+  n_patients_val: 40
+  n_patients_test: 60
+  horizon: 36
+  history_length: 12
+  prediction_horizon: 12
+  train_stride: 3
+  seed: 0
+model:
+  latent_dim: 16
+  d_model: 32
+  n_attention_heads: 4
+  n_attention_layers: 2
+  predictor_hidden: 64
+  decoder_hidden: [64, 32]
+  dt: 1.0
+training:
+  epochs: 4
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0001
+  warmup_frac: 0.05
+  grad_clip: 1.0
+  patience: 20
+  seed: 0
+  device: auto
+  w_pred: 1.0
+  w_constr: 10.0
+  w_collapse: 0.1
+  w_recon: 0.5
+evaluation:
+  n_probe_patients: 40
+  long_rollout_horizon: 24
+  collapse_alert_threshold: 3.0
+paths:
+  checkpoint_dir: liver_world_model/checkpoints_smoke
+  results_dir: liver_world_model/results_smoke

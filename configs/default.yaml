@@ -1,0 +1,46 @@
+# Default config. Values are tuned to run end-to-end on CPU in a few minutes
+# (Decision D6). Scale n_patients_train / epochs up on a GPU box for lower error.
+data:
+  n_patients_train: 800
+  n_patients_val: 150
+  n_patients_test: 250
+  horizon: 36            # months per generated trajectory
+  history_length: 12
+  prediction_horizon: 12
+  train_stride: 2        # subsample overlapping train windows for CPU speed
+  seed: 0
+
+model:
+  latent_dim: 16         # Decision D3 — see models/encoder.py for justification
+  d_model: 32
+  n_attention_heads: 4
+  n_attention_layers: 2
+  predictor_hidden: 64
+  decoder_hidden: [64, 32]
+  dt: 1.0
+
+training:
+  epochs: 18
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0001
+  warmup_frac: 0.05
+  grad_clip: 1.0
+  patience: 8
+  seed: 0
+  device: auto
+  # loss weights (epoch 0). Schedule in training/losses.py:
+  #   constraint 10 -> 1, collapse 0.1 -> 1.0 over the first 10 epochs.
+  w_pred: 1.0
+  w_constr: 10.0
+  w_collapse: 0.1
+  w_recon: 0.5
+
+evaluation:
+  n_probe_patients: 200
+  long_rollout_horizon: 30    # > prediction_horizon to test extrapolation
+  collapse_alert_threshold: 3.0
+
+paths:
+  checkpoint_dir: liver_world_model/checkpoints
+  results_dir: liver_world_model/results
