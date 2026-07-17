@@ -1,0 +1,337 @@
+{
+  "test_metrics": {
+    "jepa": {
+      "overall_mse": 0.010801604017615318,
+      "mse_per_field": {
+        "F": 0.002459557494148612,
+        "D": 0.0004907732363790274,
+        "S": 0.010008568875491619,
+        "P": 0.0029605154413729906,
+        "A": 0.027334481477737427,
+        "C": 0.014172901399433613,
+        "M": 3.7269489894242724e-06,
+        "flare": 0.028982099145650864
+      },
+      "mae_per_field": {
+        "F": 0.028766348958015442,
+        "D": 0.012575056403875351,
+        "S": 0.049094557762145996,
+        "P": 0.03262762725353241,
+        "A": 0.10090433806180954,
+        "C": 0.08676932752132416,
+        "M": 0.0007921126089058816,
+        "flare": 0.08380799740552902
+      },
+      "error_vs_horizon": [
+        0.009165274910628796,
+        0.009262760169804096,
+        0.00919931661337614,
+        0.00941272173076868,
+        0.009791549295186996,
+        0.010365880094468594,
+        0.011021412909030914,
+        0.011684145778417587,
+        0.011999014765024185,
+        0.01224435307085514,
+        0.012584047392010689,
+        0.012888777069747448
+      ],
+      "cumulative_error": 0.12961925379931927,
+      "constraint_violation_rate": {
+        "mono_F": 0.0,
+        "mono_D": 0.0,
+        "mono_P": 0.0,
+        "mono_M": 0.0,
+        "mono_S_nonercp": 0.0,
+        "bound_low": 0.0,
+        "bound_high": 0.0,
+        "any_rate": 0.0,
+        "_counts": {
+          "mono_F": 0,
+          "mono_D": 0,
+          "mono_P": 0,
+          "mono_M": 0,
+          "mono_S_nonercp": 0,
+          "bound_low": 0,
+          "bound_high": 0,
+          "total": 0
+        }
+      },
+      "bounds_violation_rate": 0.0,
+      "n_samples": 3250
+    },
+    "baseline": {
+      "overall_mse": 0.007361480034887791,
+      "mse_per_field": {
+        "F": 0.0014534058282151818,
+        "D": 0.0003072453255299479,
+        "S": 0.0034041537437587976,
+        "P": 0.0008570232894271612,
+        "A": 0.019658589735627174,
+        "C": 0.006697900127619505,
+        "M": 3.1504680464422563e-06,
+        "flare": 0.026510125026106834
+      },
+      "mae_per_field": {
+        "F": 0.020961085334420204,
+        "D": 0.009518509730696678,
+        "S": 0.02580159157514572,
+        "P": 0.019588112831115723,
+        "A": 0.08254040777683258,
+        "C": 0.04680783674120903,
+        "M": 0.0006951681571081281,
+        "flare": 0.08228356391191483
+      },
+      "error_vs_horizon": [
+        0.0030168492812663317,
+        0.00462272297590971,
+        0.005515463650226593,
+        0.006315215956419706,
+        0.007030426058918238,
+        0.0077421520836651325,
+        0.008354966528713703,
+        0.008888376876711845,
+        0.009045134298503399,
+        0.009124161675572395,
+        0.009275583550333977,
+        0.009406701661646366
+      ],
+      "cumulative_error": 0.0883377545978874,
+      "constraint_violation_rate": {
+        "mono_F": 0.0,
+        "mono_D": 0.0,
+        "mono_P": 0.0,
+        "mono_M": 0.0,
+        "mono_S_nonercp": 0.0,
+        "bound_low": 0.0,
+        "bound_high": 0.0,
+        "any_rate": 0.0,
+        "_counts": {
+          "mono_F": 0,
+          "mono_D": 0,
+          "mono_P": 0,
+          "mono_M": 0,
+          "mono_S_nonercp": 0,
+          "bound_low": 0,
+          "bound_high": 0,
+          "total": 0
+        }
+      },
+      "bounds_violation_rate": 0.0,
+      "n_samples": 3250
+    },
+    "jepa_effective_dim": 8.921456336975098,
+    "collapse_alert_threshold": 3.0
+  },
+  "probes": {
+    "unseen_susceptibility": {
+      "numbers": {
+        "mse_low_sus": 0.010031773708760738,
+        "mse_high_sus": 0.013330121524631977,
+        "mse_ratio_high_over_low": 1.328790093519633,
+        "mse_per_field_high": {
+          "F": 0.013594998978078365,
+          "D": 0.0023211233783513308,
+          "S": 0.011489538475871086,
+          "P": 0.010886155068874359,
+          "A": 0.027733363211154938,
+          "C": 0.013115523383021355,
+          "M": 1.41792015710962e-05,
+          "flare": 0.027486050501465797
+        },
+        "violation_rate_high": 0.0
+      },
+      "verdict": "High-susceptibility error is 1.3x the low-susceptibility error \u2014 the model holds up on rapid progressors.",
+      "can_establish": "Whether learned dynamics transfer to progression rates outside the training mass.",
+      "cannot_establish": "Whether failures are 'wrong biology' vs. simply out-of-support extrapolation of the same rule."
+    },
+    "unseen_treatment_timing": {
+      "numbers": {
+        "mse_nominal": 0.013217533938586712,
+        "mse_shifted": 0.014505953527987003,
+        "treatment_field_mse_delta": {
+          "A": -0.0005783438682556152,
+          "C": 0.0013473015278577805,
+          "S": 0.012969069182872772
+        },
+        "violation_rate_shifted": 0.0
+      },
+      "verdict": "Shifting treatment timing changes overall MSE 0.0132 -> 0.0145; treatment-coupled fields A/C/S move by {'A': -0.0006, 'C': 0.0013, 'S': 0.013}.",
+      "can_establish": "Whether the model keyed on absolute event months vs. the event signal itself (the referral-shortcut worry).",
+      "cannot_establish": "Causal correctness of the treatment response \u2014 that needs interventional re-runs (out of scope)."
+    },
+    "long_rollout": {
+      "numbers": {
+        "error_vs_horizon": [
+          0.00900388602167368,
+          0.010117988102138042,
+          0.009418459609150887,
+          0.00839948933571577,
+          0.007215794175863266,
+          0.006581231020390987,
+          0.007224383298307657,
+          0.00756319984793663,
+          0.0084153451025486,
+          0.010009224526584148,
+          0.010735276155173779,
+          0.011618469841778278,
+          0.01099046878516674,
+          0.011503753252327442,
+          0.011206671595573425,
+          0.010899847373366356,
+          0.009780870750546455,
+          0.009019133634865284,
+          0.010150505229830742,
+          0.012508268468081951,
+          0.014996742829680443,
+          0.01800094172358513,
+          0.0194670632481575,
+          0.020067421719431877,
+          0.019700661301612854,
+          0.02003123052418232,
+          0.02146736904978752,
+          0.020418545231223106,
+          0.019984258338809013,
+          0.01881815493106842
+        ],
+        "mean_error_in_horizon": 0.008858562253105143,
+        "mean_error_beyond_horizon": 0.01550066155484981,
+        "growth_ratio": 1.7497942794742396,
+        "violation_rate": 0.0
+      },
+      "verdict": "Error grows from 0.0089 (<= 12mo) to 0.0155 (> 12mo); constraint violations remain 0.0000 \u2014 the parameterisation holds even where accuracy decays.",
+      "can_establish": "Whether accuracy and constraint-satisfaction decouple over long horizons (they should: constraints are structural).",
+      "cannot_establish": "Long-horizon *accuracy* ceiling \u2014 accumulation is inherent to autoregressive rollout."
+    },
+    "interpolation_vs_extrapolation": {
+      "numbers": {
+        "mse_seen_patients": 0.00886206328868866,
+        "mse_unseen_patients": 0.009916356764733791,
+        "generalisation_gap_ratio": 1.118967044321474
+      },
+      "verdict": "Unseen-patient MSE is 1.12x seen-patient MSE. Small gap: the model recovered the rule, not the trainset.",
+      "can_establish": "Memorisation vs. rule-recovery within this generator.",
+      "cannot_establish": "Transfer to a *different* generator / real biology \u2014 the single-generator ceiling the brief names."
+    },
+    "counterfactual": {
+      "numbers": {},
+      "verdict": "Out of scope (brief). Would require intervening on the treatment timeline and validating against a generator re-run with the same per-patient seed but altered UDCA/ERCP schedule.",
+      "can_establish": "Nothing measured here.",
+      "cannot_establish": "Interventional (causal) correctness \u2014 needs the do-operator semantics the attention model does not encode."
+    }
+  },
+  "head_to_head_susceptibility": {
+    "jepa_high_sus_mse": 0.013330121524631977,
+    "baseline_high_sus_mse": 0.009327889420092106,
+    "jepa_low_sus_mse": 0.010031773708760738,
+    "baseline_low_sus_mse": 0.007011616602540016,
+    "latent_helps_on_rapid_progressors": false
+  },
+  "noise_robustness": {
+    "sigmas": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "baseline_mae": [
+      0.03606187322965035,
+      0.05300018778787209,
+      0.07171633237829575,
+      0.08918309727540383,
+      0.10601197527005123
+    ],
+    "jepa_raw_mae": [
+      0.049434228012195,
+      0.06329602404282643,
+      0.07964722296366325,
+      0.0946175716817379,
+      0.10869440149802428
+    ],
+    "jepa_denoised_mae": [
+      0.08172678388655186,
+      0.08173175542973556,
+      0.08173734666063236,
+      0.08174432155031425,
+      0.08175172513494125
+    ],
+    "crossover_sigma": 0.15,
+    "verdict": "At sigma=0.15 the denoised-anchor JEPA overtakes the baseline (0.0817 vs 0.0892); at sigma=0 they tie (0.0817 vs 0.0361). The latent buys noise robustness, not clean-data accuracy \u2014 exactly where a denoised history estimate helps."
+  },
+  "manifold_critic": {
+    "critic_auc": 0.9699330612244897,
+    "score_real_heldout": 0.6440094709396362,
+    "score_jepa": 0.6559623002639183,
+    "score_baseline": 0.6472677562420185
+  },
+  "counterfactual": {
+    "outcome_field": "C",
+    "shift_months": 6,
+    "n_patients": 200,
+    "true_effect_mean": -0.04453384097274532,
+    "pred_effect_mean": -5.1634069532155994e-05,
+    "sign_agreement_rate": 1.0,
+    "magnitude_ratio": 0.0011895922032278156,
+    "verdict": "Model's UDCA-6mo-earlier effect on C: predicted mean -0.0001 vs generator ground-truth -0.0445; sign agreement 100% over 49 patients; magnitude ratio 0.001. Directionally faithful but severely under-scales the effect \u2014 the correlational model knows the SIGN of the intervention, not its magnitude (honest negative on the quantitative side; expected without do-operator semantics)."
+  },
+  "worked_explanation": {
+    "target_step": 11,
+    "predicted_state": {
+      "F": 0.711,
+      "D": 0.231,
+      "S": 0.293,
+      "P": 0.304,
+      "A": 0.167,
+      "C": 0.069,
+      "M": 0.01,
+      "flare": 0.04
+    },
+    "predicted_F": 0.711,
+    "derived_cirrhosis_stage": 3,
+    "top_input_drivers_by_ablation": [
+      [
+        "C",
+        0.0
+      ],
+      [
+        "A",
+        0.0
+      ],
+      [
+        "F",
+        0.0
+      ]
+    ],
+    "attention_received_by_field": {
+      "F": 0.15,
+      "D": 0.063,
+      "S": 0.063,
+      "P": 0.062,
+      "A": 0.233,
+      "C": 0.264,
+      "M": 0.042,
+      "flare": 0.124
+    },
+    "latent_movement": {
+      "top_dims": [
+        9,
+        10,
+        8
+      ],
+      "magnitudes": [
+        0.0010000000474974513,
+        0.0010000000474974513,
+        0.0010000000474974513
+      ]
+    },
+    "patient_meta": {
+      "disease_class": "psc",
+      "responder": 1,
+      "susceptibility": 2.409,
+      "true_F_at_target": 1.0,
+      "true_cirrhosis_stage_at_target": 4,
+      "F_at_history_end": 0.649
+    }
+  }
+}
