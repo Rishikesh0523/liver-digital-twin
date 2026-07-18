@@ -128,7 +128,7 @@ The lesson: **a predictive latent buys robustness, not clean-data accuracy** —
 regime a clean single generator can't exercise. Full numbers in
 `results/evaluation_report.json`; figures in `figures/`;
 
-## Known limitations (short list; full in memo §4)
+## Known limitations
 
 - Single-generator ceiling: "world model vs. generator-inverter" cannot be settled
   from inside one generator — the probes map *where* recovery breaks, not whether
